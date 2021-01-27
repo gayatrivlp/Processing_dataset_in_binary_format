@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+import numpy as np
+
+
+# write path of the dataset(in binary format) as first argument
+#dtype = expected data type of the values in the csv file
+#count = number of items to read. count = -1 to read complete file
+#sep = delimetre. For binary files sep=""
+#offset = position from which the processing of file has to start. offset=0 to process file from starting
+
+
+arr1=np.fromfile("C:\Datasets\cit-Patents_deg_32_bit_ints.bin",dtype=int,count=-1,sep="",offset=0) 
+
+
+import pandas as pd
+
+
+arr2 = arr1.reshape(3774768,2)
+# reshape(no of rows of csv file,number of columns of csv file)
+
+
+DF = pd.DataFrame(arr2) 
+
+
+DF.to_csv("C:\Datasets\data1.csv")# path where you want to store csv file
